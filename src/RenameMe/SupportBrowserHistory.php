@@ -78,6 +78,9 @@ class SupportBrowserHistory
         } catch (NotFoundHttpException $e) {
             // If not, use the current route.
             return app('router')->current();
+        } catch (MethodNotAllowedHttpException $e) {
+            // If not passed component route, use the current route
+            return app('router')->current();
         }
     }
 
